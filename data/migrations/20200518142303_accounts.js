@@ -8,6 +8,10 @@ exports.up = function(knex) {
       account.increments();
       account.string('username').notNullable().unique();
       account.string('password',255).notNullable();
+
+      account.integer('profile_id').unsigned()
+      .references('profile.id')
+      .onDelete('CASCADE').onUpdate('CASCADE');
   })
 };
 
