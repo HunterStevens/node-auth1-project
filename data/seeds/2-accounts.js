@@ -9,20 +9,22 @@ exports.seed = function(knex) {
     {
       username: "admin",
       password: "keepitsecret,keepitsafe.",
-      profile_id: 1,
+      profile_id: 2,
     },
     {
       username: "me",
       password: "changethepass",
-      profile_id: 2,
+      profile_id: 3,
     },
     {
       username: "nobody",
       password: "hasnorole",
+      profile_id:4
     },
     {
       username: "notme",
       password: "hasnorole",
+      profile_id:5
     }
   ];
 

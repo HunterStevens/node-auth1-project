@@ -9,26 +9,26 @@ module.exports = {
 }
 
 function findAll(){
-    return db('users').select('id','username');
+    return db('accounts').select('id','username');
 }
 
 function filterBy(filter){
-    return db('users').where(filter);
+    return db('accounts').where(filter);
 }
 
 async function newAccount(user){
     try{
-        const [id] = await db('users').insert(user,'id');
+        const [id] = await db('accounts').insert(user,'id');
         return findById(id);
     }catch(err){
-        throw err;
+        throw err.message;
     }
 }
 
 function findById(id){
-    return db('user').where({id}).first();
+    return db('accounts').where({id}).first();
 }
 
-function IsValid(account){
-    return Boolean(account.username && account.password && typeof user.password === 'string');
+function IsValid(credentials){
+    return Boolean(credentials.username && credentials.password && typeof credentials.password === 'string');
 }
